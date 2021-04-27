@@ -1,8 +1,14 @@
+"""
+@Docs
+"""
+
 import abc
 
 from django.db import models
 
-from myproject.myapp.features.Analytics.protocol.AnalyticProtocol import AnalyticProtocol
+from myproject.myapp.features.Analytics.protocol.AnalyticProtocol import (
+    AnalyticProtocol,
+)
 
 
 class BookModel(models.Model, AnalyticProtocol):

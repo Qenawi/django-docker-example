@@ -1,8 +1,15 @@
+"""
+@Docs
+"""
+
 from django.db import models
 
-from myproject.myapp.features.Analytics.protocol.AnalyticProtocol import AnalyticProtocol
+from myproject.myapp.features.Analytics.protocol.AnalyticProtocol import (
+    AnalyticProtocol,
+)
 
 
+# Description
 class DiaryModel(models.Model, AnalyticProtocol):
     diary_id = models.BigAutoField(primary_key=True)
     diary_description = models.CharField(max_length=6000)

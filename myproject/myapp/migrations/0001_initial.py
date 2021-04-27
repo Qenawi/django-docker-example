@@ -7,26 +7,25 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Task',
+            name="Task",
             fields=[
-                ('id', models.IntegerField(primary_key=True, serialize=False)),
-                ('title', models.CharField(max_length=350)),
-                ('completed', models.BooleanField(default=False)),
-                ('created', models.DateTimeField(auto_now_add=True)),
+                ("id", models.IntegerField(primary_key=True, serialize=False)),
+                ("title", models.CharField(max_length=350)),
+                ("completed", models.BooleanField(default=False)),
+                ("created", models.DateTimeField(auto_now_add=True)),
             ],
         ),
         migrations.CreateModel(
-            name='TaskA',
+            name="TaskA",
             fields=[
-                ('id', models.IntegerField(primary_key=True, serialize=False)),
-                ('title', models.CharField(max_length=350)),
-                ('completed', models.BooleanField(default=False)),
-                ('created', models.DateTimeField(auto_now_add=True)),
+                ("id", models.IntegerField(primary_key=True, serialize=False)),
+                ("title", models.CharField(max_length=350)),
+                ("completed", models.BooleanField(default=False)),
+                ("created", models.DateTimeField(auto_now_add=True)),
             ],
         ),
     ]

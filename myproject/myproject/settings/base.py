@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    'dbbackup',  # django-dbbackup
+    "dbbackup",  # django-dbbackup
     "myproject.myapp",
 ]
 
@@ -75,7 +75,6 @@ WSGI_APPLICATION = "myproject.myproject.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-
 
 
 # Password validation
@@ -117,8 +116,8 @@ USE_TZ = True
 STATIC_URL = "/static/"
 
 
-DBBACKUP_STORAGE = 'django.core.files.storage.FileSystemStorage'
-DBBACKUP_STORAGE_OPTIONS = {'location': 'my/backup/dir/'}
+DBBACKUP_STORAGE = "django.core.files.storage.FileSystemStorage"
+DBBACKUP_STORAGE_OPTIONS = {"location": "my/backup/dir/"}
 """
      ./manage.py dbbackup
     ./manage.py dbrestore 

@@ -1,8 +1,15 @@
+"""
+@Docs
+"""
+
 from django.db import models
 
-from myproject.myapp.features.Analytics.protocol.AnalyticProtocol import AnalyticProtocol
+from myproject.myapp.features.Analytics.protocol.AnalyticProtocol import (
+    AnalyticProtocol,
+)
 
 
+# Description
 class BudgetModel(models.Model, AnalyticProtocol):
     budget_id = models.BigAutoField(primary_key=True)
     budget_title = models.CharField("budget title", max_length=6000)

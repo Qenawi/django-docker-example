@@ -1,6 +1,11 @@
+"""
+@Docs
+"""
+
 from django.db import models
 
 
+# Description
 class TodoTask(models.Model):
     todo_id = models.BigAutoField(primary_key=True)
     todo_title = models.CharField(max_length=200)
