@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-
+    'dbbackup',  # django-dbbackup
     "myproject.myapp",
 ]
 
@@ -115,3 +115,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = "/static/"
+
+
+DBBACKUP_STORAGE = 'django.core.files.storage.FileSystemStorage'
+DBBACKUP_STORAGE_OPTIONS = {'location': 'my/backup/dir/'}
+"""
+     ./manage.py dbbackup
+    ./manage.py dbrestore 
+   ./manage.py mediabackup
+  ./manage.py mediarestore 
+ 
+"""
