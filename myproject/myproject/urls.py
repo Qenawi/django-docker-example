@@ -13,6 +13,6 @@ urlpatterns = [
     path("", include('myproject.myapp.features.Budget.urls.BudgetUrls')),
     path("", include('myproject.myapp.features.Diary.urls.DiaryUrls')),
     path("", include('myproject.myapp.features.LifeEvents.urls.LifeEventUrls')),
-    path("", include('myproject.myapp.features.Todo.urls.TodoUrls'))
-
+    path("", include('myproject.myapp.features.Todo.urls.TodoUrls')),
+    path('jet/', include('jet.urls', 'jet'))
 ]

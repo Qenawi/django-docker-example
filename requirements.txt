@@ -9,5 +9,6 @@ django-dbbackup==3.3.0
 pillow==8.2.0
 #Dashboard
 pylint==2.4.4
+django-3-jet==1.0.8
 
 
