@@ -1,25 +1,34 @@
-FROM python:3.8-alpine
+FROM python:3-alpine
 
 # Set environment variables
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONFAULTHANDLER 1
 ENV PYTHONUNBUFFERED 1
 
-RUN apk update && apk add --no-cache \
+#RUN apk update && apk add --no-cache \
     # Required for installing/upgrading postgres, Pillow, etc:
-    gcc python3-dev \
-    # Required for installing/upgrading postgres:
-    postgresql-libs postgresql-dev musl-dev
+ #   gcc python3-dev
+
+RUN apk update \
+  # psycopg2 dependencies
+  && apk add --virtual build-deps gcc python3-dev musl-dev \
+  && apk add postgresql-dev \
+  # Pillow dependencies
+  && apk add jpeg-dev zlib-dev freetype-dev lcms2-dev openjpeg-dev tiff-dev tk-dev tcl-dev \
+  # CFFI dependencies
+  && apk add libffi-dev py-cffi \
+  && apk add build-base
+
 
 # Set work directory
 RUN mkdir /code
 WORKDIR /code
+# to enaple docker to see it
+ADD requirements.txt /code/
 
 # Install dependencies into a virtualenv
-RUN pip install --upgrade pipenv
-COPY ./Pipfile .
-COPY ./Pipfile.lock .
-RUN pipenv install --dev --deploy
-
+RUN pip install -r requirements.txt
+#todo
+ADD . /code/
 # Copy project code
-COPY . /code/
+#COPY . /code/
