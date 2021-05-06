@@ -16,5 +16,5 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
           registry: docker.pkg.github.com
-          repository: Qenawi/django-docker-example/wep_app
+          repository: Qenawi/django-docker-example/image
           tag_with_ref: true
