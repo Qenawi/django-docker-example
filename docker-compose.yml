@@ -1,33 +1,14 @@
-version: '3.9'
-
+version: '3.3'
 services:
-  db:
-    container_name: myproject_db
-    env_file:
-      - .env
-    image: postgres:alpine
-    ports:
-      - "5432:5432"
-    restart: unless-stopped
-    volumes:
-      - postgres_data:/var/lib/postgresql/data/
+
   web:
     build: .
+    # build order  1 -> run migrations   2 -> run python
+    #
     command: >
       sh -c "
-      pipenv run python manage.py migrate &&
-      pipenv run python manage.py runserver 0.0.0.0:8000
+      sh scripts/sync/sync_database.sh &&
+      python3 manage.py runserver 0.0.0.0:8080
       "
-    container_name: myproject_web
-    depends_on:
-      - db
-    env_file:
-      - .env
     ports:
-      - "8000:8000"
-    restart: unless-stopped
-    volumes:
-      - .:/code
-
-volumes:
-  postgres_data:
+      - 8080:8080

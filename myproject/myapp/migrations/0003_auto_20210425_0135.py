@@ -6,62 +6,81 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('myapp', '0002_auto_20210425_0112'),
+        ("myapp", "0002_auto_20210425_0112"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='BookModel',
+            name="BookModel",
             fields=[
-                ('book_id', models.BigAutoField(primary_key=True, serialize=False)),
-                ('book_title', models.CharField(max_length=6000)),
-                ('book_start_date', models.DateTimeField(auto_now_add=True, verbose_name='book start reading Date')),
-                ('book_end_date', models.DateTimeField(auto_now_add=True, verbose_name='book end reading Date')),
-                ('current_page', models.IntegerField(verbose_name='current page')),
-                ('page_count', models.IntegerField(verbose_name='current page')),
+                ("book_id", models.BigAutoField(primary_key=True, serialize=False)),
+                ("book_title", models.CharField(max_length=6000)),
+                (
+                    "book_start_date",
+                    models.DateTimeField(
+                        auto_now_add=True, verbose_name="book start reading Date"
+                    ),
+                ),
+                (
+                    "book_end_date",
+                    models.DateTimeField(
+                        auto_now_add=True, verbose_name="book end reading Date"
+                    ),
+                ),
+                ("current_page", models.IntegerField(verbose_name="current page")),
+                ("page_count", models.IntegerField(verbose_name="current page")),
             ],
         ),
         migrations.CreateModel(
-            name='DiaryModel',
+            name="DiaryModel",
             fields=[
-                ('diary_id', models.BigAutoField(primary_key=True, serialize=False)),
-                ('diary_description', models.CharField(max_length=6000)),
-                ('diary_date', models.DateTimeField(auto_now_add=True, verbose_name='event Date')),
-                ('diary_success_rate', models.FloatField(verbose_name='Success Rate')),
+                ("diary_id", models.BigAutoField(primary_key=True, serialize=False)),
+                ("diary_description", models.CharField(max_length=6000)),
+                (
+                    "diary_date",
+                    models.DateTimeField(auto_now_add=True, verbose_name="event Date"),
+                ),
+                ("diary_success_rate", models.FloatField(verbose_name="Success Rate")),
             ],
         ),
         migrations.CreateModel(
-            name='LifeEvent',
+            name="LifeEvent",
             fields=[
-                ('life_event_id', models.BigAutoField(primary_key=True, serialize=False)),
-                ('life_event_title', models.CharField(max_length=600)),
-                ('life_event_date', models.DateTimeField(verbose_name='event Date')),
-                ('life_event_success_rate', models.FloatField(verbose_name='Success Rate')),
+                (
+                    "life_event_id",
+                    models.BigAutoField(primary_key=True, serialize=False),
+                ),
+                ("life_event_title", models.CharField(max_length=600)),
+                ("life_event_date", models.DateTimeField(verbose_name="event Date")),
+                (
+                    "life_event_success_rate",
+                    models.FloatField(verbose_name="Success Rate"),
+                ),
             ],
         ),
         migrations.AlterField(
-            model_name='todotask',
-            name='todo_end_date',
-            field=models.DateTimeField(verbose_name='Task End Date'),
+            model_name="todotask",
+            name="todo_end_date",
+            field=models.DateTimeField(verbose_name="Task End Date"),
         ),
         migrations.AlterField(
-            model_name='todotask',
-            name='todo_start_date',
-            field=models.DateTimeField(verbose_name='Task Start Date'),
+            model_name="todotask",
+            name="todo_start_date",
+            field=models.DateTimeField(verbose_name="Task Start Date"),
         ),
         migrations.AlterField(
-            model_name='todotask',
-            name='todo_status_is_archived',
-            field=models.BooleanField(verbose_name='Is Archived'),
+            model_name="todotask",
+            name="todo_status_is_archived",
+            field=models.BooleanField(verbose_name="Is Archived"),
         ),
         migrations.AlterField(
-            model_name='todotask',
-            name='todo_status_is_finished',
-            field=models.BooleanField(verbose_name='Is Finished'),
+            model_name="todotask",
+            name="todo_status_is_finished",
+            field=models.BooleanField(verbose_name="Is Finished"),
         ),
         migrations.AlterField(
-            model_name='todotask',
-            name='todo_status_success_rate',
-            field=models.FloatField(verbose_name='Success Rate'),
+            model_name="todotask",
+            name="todo_status_success_rate",
+            field=models.FloatField(verbose_name="Success Rate"),
         ),
     ]

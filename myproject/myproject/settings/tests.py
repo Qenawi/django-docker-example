@@ -2,12 +2,10 @@
 Settings used for running tests.
 """
 
-from .base import *
-
 
 CACHES = {
-    'default': {
+    "default": {
         # Use dummy cache (ie, no caching):
-        'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
+        "BACKEND": "django.core.cache.backends.dummy.DummyCache",
     }
 }

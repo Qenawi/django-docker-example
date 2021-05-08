@@ -2,14 +2,13 @@ Life Orginizer Steps
 
 #Exist:
 
-- wallet module
-- todoTasks module
-- life event module
-- Anlytics Module
-- 
-#Todo
+- wallet module (done)
+- todoTasks module (done)
+- life event module (done)
+- Anlytics Module (done)
+- add dashboard (done)
+- unit test (done)
+- pipe line (done)
 
-- unit test 
-- pipe line 
+#Todo
 - deploy on remote vcs 
-- add dashboard 

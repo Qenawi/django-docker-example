@@ -7,18 +7,27 @@ import myproject.myapp.features.Analytics.protocol.AnalyticProtocol
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('myapp', '0003_auto_20210425_0135'),
+        ("myapp", "0003_auto_20210425_0135"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='BudgetModel',
+            name="BudgetModel",
             fields=[
-                ('budget_id', models.BigAutoField(primary_key=True, serialize=False)),
-                ('budget_title', models.CharField(max_length=6000, verbose_name='budget title')),
-                ('budge_date', models.DateTimeField(auto_now_add=True, verbose_name='budget Date')),
-                ('budget_amount', models.FloatField(verbose_name='budget Amount')),
+                ("budget_id", models.BigAutoField(primary_key=True, serialize=False)),
+                (
+                    "budget_title",
+                    models.CharField(max_length=6000, verbose_name="budget title"),
+                ),
+                (
+                    "budge_date",
+                    models.DateTimeField(auto_now_add=True, verbose_name="budget Date"),
+                ),
+                ("budget_amount", models.FloatField(verbose_name="budget Amount")),
             ],
-            bases=(models.Model, myproject.myapp.features.Analytics.protocol.AnalyticProtocol.AnalyticProtocol),
+            bases=(
+                models.Model,
+                myproject.myapp.features.Analytics.protocol.AnalyticProtocol.AnalyticProtocol,
+            ),
         ),
     ]
