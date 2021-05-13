@@ -1,3 +1,4 @@
 .env
 /myproject/myproject/db.sqlite3
 /my/
+/myproject/staticfiles/
