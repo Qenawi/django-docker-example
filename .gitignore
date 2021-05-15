@@ -1,4 +1,6 @@
 .env
 /myproject/myproject/db.sqlite3
 /my/
+# exclude json file
 /myproject/staticfiles/
+/scripts/accountKey.json
