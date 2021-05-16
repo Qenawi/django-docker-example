@@ -10,5 +10,7 @@ pillow==8.2.0
 #Dashboard
 pylint==2.4.4
 django-3-jet==1.0.8
+# fire-base-admin
+firebase-admin == 5.0.0
 
 

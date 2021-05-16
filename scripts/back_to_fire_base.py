@@ -7,7 +7,10 @@ import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import storage
 
-latest_backup = ""
+# input keys [-b / -r]
+import sys
+
+latest_backup = "my/backup/dir/backup.dump"
 
 
 # send backup file to firebase storage
@@ -26,25 +29,34 @@ def get_latest_database_dumb():
 
 
 def upload_to_fire_base():
+    print("--------- uploading ... ----------")
     global latest_backup
     file = latest_backup
     bucket = storage.bucket()
-    blob = bucket.blob(blob_name="backup.dumb")
+    blob = bucket.blob(blob_name="backup.dump")
     fi = open(file, "rb")
     rep = blob.upload_from_file(file_obj=fi)
-    print(rep)
+    print("--------- backed up to remote server successfully  ----------")
 
 
 # download backup file from database
 def restore_backup():
     bucket = storage.bucket()
-    blob = bucket.blob(blob_name="data.dumb")
-    blob.download_to_filename("my/backup/dir/backup.dumb")
+    blob = bucket.blob(blob_name="backup.dump")
+    blob.download_to_filename("my/backup/dir/backup.dump")
     print("--------- backup restored ----------")
 
 
 if __name__ == '__main__':
-    print("--------- connecting to backup server ----------")
+    arg = ""
+    if len(sys.argv) > 1:
+        arg = sys.argv[1]
     init_admin()
-    get_latest_database_dumb()
-    restore_backup()
+    print("--------- connecting to backup server ----------")
+    # get_latest_database_dumb()
+    if arg == "-b":
+        upload_to_fire_base()
+    elif arg == "-r":
+        restore_backup()
+    else:
+        print("please type -b <backup> / -r <restore>")
