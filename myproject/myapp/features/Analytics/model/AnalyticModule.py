@@ -4,12 +4,11 @@
 
 from django.db import models
 
-
 # Description
 from myproject.myapp.base.BaseModel import BaseModelProtocol
 
 
-class AnalyticModule(models.Model,BaseModelProtocol):
+class AnalyticModule(models.Model, BaseModelProtocol):
     analytic_id = models.BigAutoField(primary_key=True)
     analytic_title = models.CharField("analytic title", max_length=6000)
     analytic_date = models.DateTimeField("analytic Date", auto_now_add=True)
@@ -35,3 +34,6 @@ class AnalyticModule(models.Model,BaseModelProtocol):
     def insert_item(item):
         item: AnalyticModule
         item.save()
+
+    def __str__(self):
+        return self.analytic_title

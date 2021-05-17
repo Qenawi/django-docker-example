@@ -4,13 +4,12 @@
 
 from django.db import models
 
-
 # Description
 from myproject.myapp.base.BaseModel import BaseModelProtocol
 from myproject.myapp.features.Analytics.protocol.AnalyticProtocol import AnalyticProtocol
 
 
-class TodoTask(models.Model , AnalyticProtocol , BaseModelProtocol ):
+class TodoTask(models.Model, AnalyticProtocol, BaseModelProtocol):
     todo_id = models.BigAutoField(primary_key=True)
     todo_title = models.CharField(max_length=200)
     todo_start_date = models.DateTimeField("Task Start Date")
@@ -40,3 +39,5 @@ class TodoTask(models.Model , AnalyticProtocol , BaseModelProtocol ):
         item: TodoTask
         item.save()
 
+    def __str__(self):
+        return self.todo_title

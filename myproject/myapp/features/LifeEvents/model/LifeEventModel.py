@@ -11,7 +11,7 @@ from myproject.myapp.features.Analytics.protocol.AnalyticProtocol import (
 
 
 # Description
-class LifeEvent(models.Model, AnalyticProtocol , BaseModelProtocol ):
+class LifeEvent(models.Model, AnalyticProtocol, BaseModelProtocol):
     life_event_id = models.BigAutoField(primary_key=True)
     life_event_title = models.CharField(max_length=600)
     life_event_date = models.DateTimeField("event Date")
@@ -42,4 +42,5 @@ class LifeEvent(models.Model, AnalyticProtocol , BaseModelProtocol ):
         item: LifeEvent
         item.save()
 
-
+    def __str__(self):
+        return self.life_event_title

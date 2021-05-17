@@ -11,7 +11,7 @@ from myproject.myapp.features.Analytics.protocol.AnalyticProtocol import (
 
 
 # Description
-class DiaryModel(models.Model, AnalyticProtocol , BaseModelProtocol ):
+class DiaryModel(models.Model, AnalyticProtocol, BaseModelProtocol):
     diary_id = models.BigAutoField(primary_key=True)
     diary_description = models.CharField(max_length=6000)
     diary_date = models.DateTimeField("event Date", auto_now_add=True)
@@ -42,3 +42,5 @@ class DiaryModel(models.Model, AnalyticProtocol , BaseModelProtocol ):
         item: DiaryModel
         item.save()
 
+    def __str__(self):
+        return self.diary_description
