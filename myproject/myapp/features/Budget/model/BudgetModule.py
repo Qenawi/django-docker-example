@@ -11,7 +11,7 @@ from myproject.myapp.features.Analytics.protocol.AnalyticProtocol import (
 
 
 # Description
-class BudgetModel(models.Model, AnalyticProtocol,BaseModelProtocol):
+class BudgetModel(models.Model, AnalyticProtocol, BaseModelProtocol):
     budget_id = models.BigAutoField(primary_key=True)
     budget_title = models.CharField("budget title", max_length=6000)
     budge_date = models.DateTimeField("budget Date", auto_now_add=True)
@@ -27,7 +27,7 @@ class BudgetModel(models.Model, AnalyticProtocol,BaseModelProtocol):
         result = {
             "id": self.budget_id,
             "title": self.budget_title,
-            "add_date": self. budge_date ,
+            "add_date": self.budge_date,
             "budget_amount": self.budget_amount
         }
         return result
@@ -36,7 +36,7 @@ class BudgetModel(models.Model, AnalyticProtocol,BaseModelProtocol):
 
     @staticmethod
     def build_item(dic: dict):
-        result = BudgetModel(budget_title=dic["title"],  budget_amount=dic["budget_amount"])
+        result = BudgetModel(budget_title=dic["title"], budget_amount=dic["budget_amount"])
         return result
 
     @staticmethod
@@ -44,3 +44,5 @@ class BudgetModel(models.Model, AnalyticProtocol,BaseModelProtocol):
         item: BudgetModel
         item.save()
 
+    def __str__(self):
+        return self.budget_title
